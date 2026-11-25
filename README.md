@@ -19,7 +19,7 @@
 | `honors` | 奖项 |
 | `site.updated` | 页脚最近更新月份 |
 
-主页已加入本人指定的照片和简介，两篇论文的配图分别截取自原论文的 Figure 1，点击配图可打开对应论文。页面不显示投稿会议或在投提示。完整作者列表与动态可以随后补充；未提供的 Google Scholar 和 CV 链接自动隐藏。工作简介、链接与未来入学状态应随进展更新。
+主页已加入本人指定的照片和简介，两篇论文的配图分别截取自原论文的 Figure 1，点击配图可打开对应论文。页面不显示投稿会议或在投提示。简介下方提供微信、Google Scholar 和小红书入口，微信与小红书点击后显示二维码。完整作者列表与动态可以随后补充；未提供的 CV 链接自动隐藏。工作简介、链接与未来入学状态应随进展更新。
 
 ### 添加照片或论文配图
 
@@ -28,6 +28,10 @@
 ### 添加 CV 或 Google Scholar
 
 设置 `profile.cv` 或 `profile.scholar` 为公开的完整 HTTPS 链接；也可以把 CV 放入 `assets/cv.pdf`，并将 `profile.cv` 设为 `assets/cv.pdf`。发布前请自行确认简历中准备公开的联系方式。
+
+### 更新联系二维码
+
+替换 `assets/wechat-qr.jpg` 或 `assets/xiaohongshu-qr.jpg` 即可更新二维码；如更改文件名，请同步修改 `profile.wechatQr` 或 `profile.xiaohongshuQr`。二维码弹窗支持关闭按钮、Esc 键和点击遮罩关闭，也可打开原图；关闭 JavaScript 时入口直接打开原图。
 
 ### 添加一条动态
 
@@ -67,7 +71,7 @@ npm run check
 ```text
 data/site.json          中英文内容
 assets/style.css        排版、颜色与移动端样式
-assets/site.js          导航高亮（非必需）
+assets/site.js          导航高亮与二维码弹窗（非必需）
 scripts/build.mjs       零依赖静态生成器
 scripts/check.mjs       页面与链接检查
 scripts/serve.mjs       本地预览

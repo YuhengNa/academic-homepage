@@ -16,3 +16,21 @@ window.addEventListener('scroll', () => {
   requestAnimationFrame(() => { updateCurrentSection(); scheduled = false; });
 }, { passive: true });
 updateCurrentSection();
+
+// Links remain usable as full-size image links if dialog support or JS is absent.
+for (const trigger of document.querySelectorAll('[data-qr-dialog]')) {
+  const dialog = document.getElementById(trigger.dataset.qrDialog);
+  if (!dialog || typeof dialog.showModal !== 'function') continue;
+  trigger.addEventListener('click', event => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    dialog.showModal();
+  });
+  dialog.querySelector('[data-close-dialog]').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    if (event.target !== dialog) return;
+    const box = dialog.getBoundingClientRect();
+    if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close();
+  });
+  dialog.addEventListener('close', () => trigger.focus({preventScroll:true}));
+}

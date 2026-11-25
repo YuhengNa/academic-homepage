@@ -15,6 +15,7 @@ body { margin: 0; color: var(--body); background: #fff; font-family: var(--sans)
 a { color: var(--accent); text-decoration: none; text-underline-offset: 4px; }
 a:hover { text-decoration: underline; }
 a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; border-radius: 2px; }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 h1, h2, h3, h4, p { margin: 0; }
 h1, h2 { color: var(--ink); font-family: var(--serif); font-weight: 500; }
 h3, h4 { color: var(--ink); font-weight: 600; }
@@ -46,6 +47,15 @@ h1 span { font-size: 23px; letter-spacing: 1px; white-space: nowrap; margin-left
 .introduction { font-size: 14px; line-height: 1.85; }
 .introduction p + p { margin-top: 10px; }
 .profile-links { display: flex; flex-wrap: wrap; gap: 20px; font-size: 12px; font-weight: 500; margin-top: 18px; }
+.contact-dialog { width: min(420px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 20px; border: 1px solid var(--rule); border-radius: 8px; color: var(--body); background: #fff; overflow: auto; box-shadow: 0 18px 70px #162b4026; }
+.contact-dialog::backdrop { background: rgba(24,34,43,.42); }
+.contact-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 8px; }
+.contact-dialog-header h2 { font-size: 23px; line-height: 1.4; }
+.dialog-close { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 4px; background: transparent; color: #687682; font: 26px/1 var(--sans); cursor: pointer; }
+.dialog-close:hover { color: var(--ink); background: var(--wash); }
+.contact-qr-image { display: block; width: 100%; height: auto; max-height: min(520px, calc(100dvh - 220px)); object-fit: contain; }
+.contact-dialog-hint { margin-top: 8px; color: var(--muted); font-size: 12px; text-align: center; }
+.qr-original { display: block; width: fit-content; margin: 10px auto 0; font-size: 12px; }
 .research-strip { display: grid; grid-template-columns: 224px minmax(0,1fr); gap: 54px; padding: 22px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 .research-strip h2 { font-size: 18px; }
 .research-strip ul { display: flex; gap: 4px 17px; flex-wrap: wrap; align-items: center; font-size: 12px; color: #596571; }

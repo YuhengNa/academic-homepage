@@ -22,7 +22,10 @@ const labels = {
     updates: 'Research updates will appear here.', researchNote: 'Preprints and ongoing research.',
     figure: 'Figure to be added', updated: 'Last updated', top: 'Back to top',
     footer: 'Yuheng Na · Embodied AI & Robot Learning', contactText: 'For research conversations and collaboration:',
-    changeLanguage: 'Switch to Chinese', menu: 'Open navigation', expandNews: 'Earlier updates'
+    changeLanguage: 'Switch to Chinese', menu: 'Open navigation', expandNews: 'Earlier updates',
+    wechat: 'WeChat', xiaohongshu: 'Xiaohongshu', scholar: 'Google Scholar',
+    close: 'Close', originalQR: 'Open full-size QR code',
+    wechatHint: 'Scan with WeChat to connect.', xiaohongshuHint: 'Scan with Xiaohongshu to find my profile.'
   },
   zh: {
     home: '学术个人主页', skip: '跳转到正文', about: '关于', aboutHeading: '关于我',
@@ -32,7 +35,10 @@ const labels = {
     updates: '后续将在此更新研究动态。', researchNote: '预印本与正在开展的研究。',
     figure: '研究配图待补充', updated: '最近更新', top: '返回顶部',
     footer: '纳昱恒 · 具身智能与机器人学习', contactText: '欢迎交流研究想法与合作机会：',
-    changeLanguage: 'Switch to English', menu: '展开导航', expandNews: '更早动态'
+    changeLanguage: 'Switch to English', menu: '展开导航', expandNews: '更早动态',
+    wechat: '微信', xiaohongshu: '小红书', scholar: '谷歌学术',
+    close: '关闭', originalQR: '查看二维码原图',
+    wechatHint: '使用微信扫一扫，添加好友。', xiaohongshuHint: '使用小红书扫一扫，找到我的主页。'
   }
 };
 
@@ -44,13 +50,15 @@ function render(lang) {
   const altFilename = isEn ? 'zh.html' : 'index.html';
   const languageTag = isEn ? 'en' : 'zh-CN';
   const title = `${isEn ? p.name : p.chineseName} — ${t.home}`;
+  const qrLink = (id,label,src) => src ? `<a href="${url(src)}" target="_blank" rel="noopener" data-qr-dialog="${id}" aria-haspopup="dialog" aria-controls="${id}">${label}</a>` : '';
+  const qrDialog = (id,label,src,hint) => src ? `<dialog id="${id}" class="contact-dialog" aria-labelledby="${id}-title"><div class="contact-dialog-header"><h2 id="${id}-title">${label}</h2><button type="button" class="dialog-close" data-close-dialog aria-label="${t.close}" autofocus>×</button></div><img class="contact-qr-image" src="${url(src)}" alt="${e(p.name)} — ${label} QR code"><p class="contact-dialog-hint">${hint}</p><a class="qr-original" href="${url(src)}" target="_blank" rel="noopener">${t.originalQR} ↗</a></dialog>` : '';
   const linkList = list => list.map(l => external(`${localized(l.label, lang)} <span aria-hidden="true">↗</span>`, l.url)).join('');
   const heading = (id, title, aside = '') => `<div class="section-heading"><h2 id="${id}-heading">${title}</h2>${aside ? `<span class="section-note">${aside}</span>` : ''}</div>`;
   const nav = [['about',t.about],['publications',t.publications],['projects',isEn?'Projects':'项目'],['experience',t.experience]];
   const experienceRows = entries => entries.map(item => `<li class="timeline-row"><div class="timeline-date">${localized(item.date, lang)}</div><div><h4>${localized(item.organization, lang)}</h4><p>${localized(item.position, lang)}</p>${text(item.detail, lang) ? `<p class="muted">${localized(item.detail, lang)}</p>` : ''}</div></li>`).join('');
   const newsRow = item => `<li><time>${e(item.date)}</time><div>${localized(item.text, lang)}${item.url ? ` ${external('↗',item.url)}` : ''}</div></li>`;
   const news = data.news.length ? `<ul class="news-list">${data.news.slice(0,3).map(newsRow).join('')}</ul>${data.news.length > 3 ? `<details><summary>${t.expandNews}</summary><ul class="news-list">${data.news.slice(3).map(newsRow).join('')}</ul></details>` : ''}` : `<p class="empty-note"><span aria-hidden="true">—</span> ${t.updates}</p>`;
-  const person = { '@context':'https://schema.org', '@type':'Person', name:p.name, alternateName:p.chineseName, url:data.site.url, sameAs:[p.github,p.blog].filter(Boolean) };
+  const person = { '@context':'https://schema.org', '@type':'Person', name:p.name, alternateName:p.chineseName, url:data.site.url, sameAs:[p.github,p.blog,p.scholar].filter(Boolean) };
   return `<!doctype html>
 <html lang="${languageTag}">
 <head>
@@ -98,7 +106,9 @@ function render(lang) {
           ${external(t.email,'mailto:'+p.email)}
           ${external('GitHub',p.github)}
           ${external(t.blog,p.blog)}
-          ${p.scholar?external('Google Scholar',p.scholar):''}
+          ${qrLink('wechat-dialog',t.wechat,p.wechatQr)}
+          ${p.scholar?external(t.scholar,p.scholar):''}
+          ${qrLink('xiaohongshu-dialog',t.xiaohongshu,p.xiaohongshuQr)}
           ${p.cv?external('CV',p.cv):''}
         </nav>
       </div>
@@ -149,6 +159,8 @@ function render(lang) {
       <p>${t.contactText} ${external(e(p.email),'mailto:'+p.email)}</p>
     </section>
   </main>
+  ${qrDialog('wechat-dialog',t.wechat,p.wechatQr,t.wechatHint)}
+  ${qrDialog('xiaohongshu-dialog',t.xiaohongshu,p.xiaohongshuQr,t.xiaohongshuHint)}
   <footer class="site-footer"><div><span>${t.footer}</span><span>${t.updated} ${e(data.site.updated)} <span aria-hidden="true">·</span> <a href="#top">${t.top} ↑</a></span></div></footer>
 </body>
 </html>`;
