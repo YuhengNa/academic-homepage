@@ -10,7 +10,7 @@
   "profile": {
     "name": "Yuheng Na",
     "chineseName": "纳昱恒",
-    "portrait": "",
+    "portrait": "assets/portrait.jpg",
     "email": "nayuheng@stu.xjtu.edu.cn",
     "github": "https://github.com/YuhengNa",
     "blog": "https://yuhengna.github.io/",
@@ -20,12 +20,14 @@
     "role": { "en": "Embodied AI & Robot Learning", "zh": "具身智能与机器人学习" },
     "about": {
       "en": [
-        "I am a final-year undergraduate in Mechanical Engineering at Xi’an Jiaotong University and a co-founder of the Xbotics Embodied AI Community.",
-        "My research interests include vision–language–action models, dexterous manipulation, and humanoid and quadrupedal loco-manipulation. I will join HKUST (Guangzhou) as a fully funded Ph.D. student in Robotics and Autonomous Systems in September 2027, advised by Prof. Haoang Li."
+        "I am Yuheng Na, a final-year undergraduate at Xi’an Jiaotong University, a co-founder of the Xbotics Embodied AI Community, and an incoming fully funded Ph.D. student at HKUST (Guangzhou), starting in 2027 under the supervision of Prof. Haoang Li. My research focuses on embodied AI, particularly embodied foundation models (VLA/WAM), dexterous manipulation, and humanoid and quadrupedal loco-manipulation.",
+        "I have authored several papers as first or co-first author and led the development of open-source projects. Representative work includes EvoMem-VLA, EgoLoAF, and DoggyClawAssistant. During my undergraduate studies, I have participated in multiple robotics competitions and received awards, gaining hands-on experience in model training, motion control, system integration, and deployment on physical robots.",
+        "In community building and open-source education, I co-founded the Xbotics Embodied AI Community and co-led the development of Xbotics Embodied AI in 21 Lectures and the Xbotics Embodied Guide. These resources provide a structured introduction to embodied AI, combining foundational knowledge with practical tutorials. The associated GitHub repositories have received over 2,000 stars in total."
       ],
       "zh": [
-        "我是西安交通大学机械工程专业大四本科生，也是 Xbotics 具身智能社区联合创始人。",
-        "研究关注视觉语言动作模型、灵巧操作，以及人形与四足机器人移动操作。将于 2027 年 9 月以全额奖学金直博生身份加入香港科技大学（广州）机器人与自主系统学域，导师为李昊昂教授。"
+        "我是纳昱恒，西安交通大学大四本科生，同时也是Xbotics 具身智能社区联合创始人，香港科技大学（广州）2027 级全奖直博（师从李昊昂教授）。研究聚焦具身智能，主要方向包括具身策略基础模型（VLA/WAM）、灵巧操作，以及人形与四足机器人移动操作。",
+        "已形成多项一作（含共一）论文，并主导开源项目开发，代表性工作包括 EvoMem-VLA、EgoLoAF 和 DoggyClawAssistant等。本科期间多次参与机器人竞赛并获奖，具备从模型训练、运动控制到系统集成与真机部署的实践经验。",
+        "在社区与开源建设方面，联合成立Xbotics具身智能社区，共同牵头编写《Xbotics 具身智能 21 讲》与《Xbotics Embodied Guide》，系统组织具身智能入门知识与实践教程，相关 GitHub 仓库累计获得 2k+ Stars。"
       ]
     }
   },
@@ -41,9 +43,10 @@
       "shortName": "EgoLoAF",
       "title": "EgoLoAF: Learning Humanoid Loco-Manipulation from Egocentric Demonstrations with Hand–Object Affordances",
       "year": "2026",
-      "image": "",
+      "image": "assets/egoloaf-fig1.webp",
+      "imageWidth": 1892,
+      "imageHeight": 1368,
       "role": { "en": "Co-first author · Project lead", "zh": "共同第一作者 · 项目负责人" },
-      "status": { "en": "Under review · CVPR 2027", "zh": "在投 · CVPR 2027" },
       "summary": { "en": "Humanoid loco-manipulation from egocentric human demonstrations.", "zh": "从第一视角人类示范中学习人形机器人的移动操作。" },
       "links": [{ "label": { "en": "Paper", "zh": "论文" }, "url": "https://arxiv.org/pdf/2611.32260" }]
     },
@@ -52,9 +55,10 @@
       "shortName": "EvoMem-VLA",
       "title": "EvoMem-VLA: State-Evolution Memory for Long-Horizon Robot Manipulation",
       "year": "2026",
-      "image": "",
+      "image": "assets/evomem-vla-fig1.webp",
+      "imageWidth": 1892,
+      "imageHeight": 1252,
       "role": { "en": "First author", "zh": "第一作者" },
-      "status": { "en": "Under review · ICLR 2027", "zh": "在投 · ICLR 2027" },
       "summary": { "en": "State-evolution memory for long-horizon robot manipulation.", "zh": "面向长时程机器人操作的状态演化记忆。" },
       "links": [{ "label": { "en": "Paper", "zh": "论文" }, "url": "https://arxiv.org/abs/2610.05418" }]
     }

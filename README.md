@@ -13,17 +13,17 @@
 | `profile` | 姓名、简介、邮箱、头像和社交链接 |
 | `research` | 研究方向 |
 | `news` | 动态，最新一条放在最前面 |
-| `publications` | 论文标题、作者角色、投稿状态、简介、配图和链接 |
+| `publications` | 论文标题、作者角色、简介、配图和链接 |
 | `projects` | 开源项目与社区工作 |
 | `education` / `experience` | 教育和工作经历 |
 | `honors` | 奖项 |
 | `site.updated` | 页脚最近更新月份 |
 
-这一版以框架为主，配图、个人照片、完整作者列表和动态可以随后补充。已经填入的内容来自本人提供的最新简历。未提供的照片和论文配图显示明确占位；未提供的 Google Scholar 和 CV 链接自动隐藏，不会生成无效按钮。论文的在投状态与未来入学状态应随进展更新。
+主页已加入本人指定的照片和简介，两篇论文的配图分别截取自原论文的 Figure 1，点击配图可打开对应论文。页面不显示投稿会议或在投提示。完整作者列表与动态可以随后补充；未提供的 Google Scholar 和 CV 链接自动隐藏。工作简介、链接与未来入学状态应随进展更新。
 
 ### 添加照片或论文配图
 
-把照片放入 `assets/portrait.jpg`，然后把 `profile.portrait` 改为 `assets/portrait.jpg`。论文配图同理，设置对应论文的 `image`。图片会被复制到发布目录。
+把照片放入 `assets/portrait.jpg`，然后把 `profile.portrait` 改为 `assets/portrait.jpg`。论文配图同理，设置对应论文的 `image`、`imageWidth` 和 `imageHeight`（图片的原始像素尺寸）。图片会被复制到发布目录，并按原始比例完整显示。
 
 ### 添加 CV 或 Google Scholar
 

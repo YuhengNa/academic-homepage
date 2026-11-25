@@ -117,11 +117,10 @@ function render(lang) {
       ${heading('publications',t.publications,t.researchNote)}
       <div class="publication-list">${data.publications.map(item=>`
         <article class="publication" id="${e(item.id)}">
-          ${item.image ? `<img class="paper-image" src="${url(item.image)}" alt="${e(item.shortName)}" width="220" height="150" loading="lazy">` : `<div class="paper-image paper-placeholder" aria-label="${t.figure}"><span class="paper-type">${e(item.year)} / RESEARCH</span><span class="paper-monogram">${e(item.shortName)}</span><span class="paper-placeholder-label">${t.figure}</span></div>`}
+          ${item.image ? external(`<img class="paper-image" src="${url(item.image)}" alt="${e(item.shortName)} — Figure 1" width="${e(item.imageWidth || 220)}" height="${e(item.imageHeight || 150)}" loading="lazy">`, item.links[0].url, ` class="paper-preview" aria-label="${e(item.shortName)} — ${t.paper}"`) : `<div class="paper-image paper-placeholder" aria-label="${t.figure}"><span class="paper-type">${e(item.year)} / RESEARCH</span><span class="paper-monogram">${e(item.shortName)}</span><span class="paper-placeholder-label">${t.figure}</span></div>`}
           <div class="paper-copy">
             <h3>${external(e(item.title),item.links[0].url)}</h3>
             <p class="paper-authors"><strong>${e(p.name)}</strong><span class="role-separator">·</span>${localized(item.role,lang)}</p>
-            <p class="paper-status">${localized(item.status,lang)}</p>
             <p class="paper-summary">${localized(item.summary,lang)}</p>
             <div class="item-links">${linkList(item.links)}</div>
           </div>
