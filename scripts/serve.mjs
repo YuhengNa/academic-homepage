@@ -3,7 +3,7 @@ import { readFile, stat } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
-await import('./build.mjs');
+await import('./build-redirect.mjs');
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../dist');
 const mime = {'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.webp':'image/webp','.pdf':'application/pdf','.xml':'application/xml','.txt':'text/plain'};
 const port = Number(process.env.PORT || 4173);

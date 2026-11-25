@@ -21,9 +21,9 @@ jobs:
         with:
           node-version: '22'
       - name: Build static website
-        run: node scripts/build.mjs
+        run: npm run build
       - name: Check website
-        run: node scripts/check.mjs
+        run: npm run check
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:

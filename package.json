@@ -5,8 +5,8 @@
   "type": "module",
   "description": "A bilingual academic homepage for Yuheng Na.",
   "scripts": {
-    "build": "node scripts/build.mjs",
-    "check": "node scripts/check.mjs",
+    "build": "node scripts/build-redirect.mjs",
+    "check": "node scripts/check-redirect.mjs",
     "dev": "node scripts/serve.mjs"
   },
   "engines": { "node": ">=22" }

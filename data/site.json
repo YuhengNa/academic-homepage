@@ -1,6 +1,6 @@
 {
   "site": {
-    "url": "https://yuhengna.github.io/academic-homepage/",
+    "url": "https://yuhengna.github.io/",
     "updated": "2026-11",
     "description": {
       "en": "Yuheng Na's academic homepage. Research in embodied AI, robot learning, and loco-manipulation.",
@@ -13,7 +13,7 @@
     "portrait": "assets/portrait.jpg",
     "email": "nayuheng@stu.xjtu.edu.cn",
     "github": "https://github.com/YuhengNa",
-    "blog": "https://yuhengna.github.io/",
+    "blog": "https://yuhengna.github.io/blog/",
     "scholar": "https://scholar.google.com/citations?user=2R2bdiUAAAAJ&hl=en",
     "wechatQr": "assets/wechat-qr.jpg",
     "xiaohongshuQr": "assets/xiaohongshu-qr.jpg",
@@ -38,7 +38,26 @@
     { "en": "Dexterous manipulation", "zh": "灵巧操作" },
     { "en": "Humanoid & quadrupedal loco-manipulation", "zh": "人形与四足机器人移动操作" }
   ],
-  "news": [],
+  "news": [
+    {
+      "date": "2026.11",
+      "text": { "en": "🚀 Our EgoLoAF preprint is now available!", "zh": "🚀 EgoLoAF 预印本已发布！" },
+      "linkLabel": { "en": "Paper", "zh": "论文" },
+      "url": "https://arxiv.org/abs/2611.32260"
+    },
+    {
+      "date": "2026.10",
+      "text": { "en": "🚀 Our EvoMem-VLA preprint is now available!", "zh": "🚀 EvoMem-VLA 预印本已发布！" },
+      "linkLabel": { "en": "Paper", "zh": "论文" },
+      "url": "https://arxiv.org/abs/2610.05418"
+    },
+    {
+      "date": "2026.04",
+      "text": { "en": "🚀 The DoggyClawAssistant project code is now open source!", "zh": "🚀 DoggyClawAssistant 项目代码已开源！" },
+      "linkLabel": { "en": "Code", "zh": "代码" },
+      "url": "https://github.com/YuhengNa/DoggyClawAssistant"
+    }
+  ],
   "publications": [
     {
       "id": "egoloaf",

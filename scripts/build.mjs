@@ -56,7 +56,7 @@ function render(lang) {
   const heading = (id, title, aside = '') => `<div class="section-heading"><h2 id="${id}-heading">${title}</h2>${aside ? `<span class="section-note">${aside}</span>` : ''}</div>`;
   const nav = [['about',t.about],['publications',t.publications],['projects',isEn?'Projects':'项目'],['experience',t.experience]];
   const experienceRows = entries => entries.map(item => `<li class="timeline-row"><div class="timeline-date">${localized(item.date, lang)}</div><div><h4>${localized(item.organization, lang)}</h4><p>${localized(item.position, lang)}</p>${text(item.detail, lang) ? `<p class="muted">${localized(item.detail, lang)}</p>` : ''}</div></li>`).join('');
-  const newsRow = item => `<li><time>${e(item.date)}</time><div>${localized(item.text, lang)}${item.url ? ` ${external('↗',item.url)}` : ''}</div></li>`;
+  const newsRow = item => `<li><time datetime="${e(item.date.replace('.', '-'))}">${e(item.date)}</time><div>${localized(item.text, lang)}${item.url ? ` ${external(`${localized(item.linkLabel || (isEn ? 'More' : '详情'), lang)} <span aria-hidden="true">↗</span>`,item.url)}` : ''}</div></li>`;
   const news = data.news.length ? `<ul class="news-list">${data.news.slice(0,3).map(newsRow).join('')}</ul>${data.news.length > 3 ? `<details><summary>${t.expandNews}</summary><ul class="news-list">${data.news.slice(3).map(newsRow).join('')}</ul></details>` : ''}` : `<p class="empty-note"><span aria-hidden="true">—</span> ${t.updates}</p>`;
   const person = { '@context':'https://schema.org', '@type':'Person', name:p.name, alternateName:p.chineseName, url:data.site.url, sameAs:[p.github,p.blog,p.scholar].filter(Boolean) };
   return `<!doctype html>
